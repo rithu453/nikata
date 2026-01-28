@@ -7,6 +7,8 @@ import FilesApp from '@/components/FilesApp';
 import EtherApp from '@/components/EtherApp';
 import NikataApp from '@/components/NikataApp';
 import TetrisApp from '@/components/TetrisApp';
+import StickRunApp from '@/components/StickRunApp';
+import CarRaceApp from '@/components/CarRaceApp';
 import TaskListApp from '@/components/TaskListApp';
 import NotesApp from '@/components/NotesApp';
 import ClockApp from '@/components/ClockApp';
@@ -25,6 +27,8 @@ const APPS: { type: AppType; label: string; title: string }[] = [
   { type: 'ether', label: 'ETHER', title: 'ETHER BROWSER' },
   { type: 'nikata', label: 'NIKATA', title: 'NIKATA AI TERMINAL' },
   { type: 'tetris', label: 'TETRIS', title: 'TETRIS v1.0' },
+  { type: 'stickrun', label: 'STICKRUN', title: 'STICK RUN v1.0' },
+  { type: 'carrace', label: 'RACER', title: 'RETRO RACER v1.0' },
   { type: 'tasks', label: 'TASKS', title: 'TASK MANAGER' },
   { type: 'notes', label: 'NOTES', title: 'NOTES EDITOR' },
   { type: 'clock', label: 'CLOCK', title: 'CLOCK & TIMER' },
@@ -140,6 +144,10 @@ export default function Home() {
         return <NikataApp />;
       case 'tetris':
         return <TetrisApp />;
+      case 'stickrun':
+        return <StickRunApp />;
+      case 'carrace':
+        return <CarRaceApp />;
       case 'tasks':
         return <TaskListApp />;
       case 'notes':
@@ -245,12 +253,12 @@ export default function Home() {
         }}
         onClick={() => setSelectedIcon(null)}
       >
-        {/* DESKTOP ICONS - 2 columns, 4 per column */}
+        {/* DESKTOP ICONS - 4 apps per column */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 80px)',
           gridTemplateRows: 'repeat(4, auto)',
-          gap: '8px 16px',
+          gridAutoFlow: 'column',
+          gap: '12px 24px',
           position: 'absolute',
           top: '20px',
           left: '20px',
